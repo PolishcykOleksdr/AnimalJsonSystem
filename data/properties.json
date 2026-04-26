@@ -1,0 +1,17 @@
+{
+  "WEIGHT": [
+    "LIGHT",
+    "MEDIUM",
+    "HEAVY"
+  ],
+  "HEIGHT": [
+    "SMALL",
+    "MEDIUM",
+    "TALL"
+  ],
+  "TYPE": [
+    "HERBIVORE",
+    "CARNIVORE",
+    "OMNIVORE"
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "WEIGHT": "LIGHT",
+    "HEIGHT": "SMALL",
+    "TYPE": "OMNIVORE"
+  },
+  {
+    "WEIGHT": "HEAVY",
+    "HEIGHT": "TALL",
+    "TYPE": "CARNIVORE"
+  },
+  {
+    "WEIGHT": "MEDIUM",
+    "HEIGHT": "SMALL",
+    "TYPE": "HERBIVORE"
+  },
+  {
+    "WEIGHT": "LIGHT",
+    "HEIGHT": "SMALL",
+    "TYPE": "OMNIVORE"
+  },
+  {
+    "WEIGHT": "HEAVY",
+    "HEIGHT": "TALL",
+    "TYPE": "CARNIVORE"
+  },
+  {
+    "WEIGHT": "MEDIUM",
+    "HEIGHT": "SMALL",
+    "TYPE": "OMNIVORE"
+  }
+]

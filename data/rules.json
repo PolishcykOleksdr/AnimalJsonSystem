@@ -1,0 +1,54 @@
+[
+  {
+    "name": "Count of herbivores",
+    "condition": {
+      "op": "EQ",
+      "property": "TYPE",
+      "value": "HERBIVORE"
+    }
+  },
+  {
+    "name": "Herbivores or carnivores that are small",
+    "condition": {
+      "op": "AND",
+      "conditions": [
+        {
+          "op": "OR",
+          "conditions": [
+            {
+              "op": "EQ",
+              "property": "TYPE",
+              "value": "HERBIVORE"},
+            {
+              "op": "EQ",
+              "property": "TYPE",
+              "value": "CARNIVORE"
+            }
+          ]
+        },
+        {
+          "op": "EQ", "property": "HEIGHT", "value": "SMALL"
+        }
+      ]
+    }
+  },
+  {
+    "name": "Omnivores that are not tall",
+    "condition": {
+      "op": "AND",
+      "conditions": [
+        {
+          "op": "EQ", "property": "TYPE", "value": "OMNIVORE"
+        },
+        {
+          "op": "NOT",
+          "condition": {
+            "op": "EQ",
+            "property": "HEIGHT",
+            "value": "TALL"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,84 @@
+@startuml
+class com.coffee.order.rule.Rule {
+- String name
+- Condition condition
++ boolean matches(Map<String,String>)
+}
+
+
+class com.coffee.order.conditions.OrCondition {
+- List<Condition> conditions
++ boolean matches(Map<String,String>)
+}
+
+
+class com.coffee.order.conditions.AndCondition {
+- List<Condition> conditions
++ boolean matches(Map<String,String>)
+}
+
+
+class com.coffee.order.conditions.NotCondition {
+- Condition condition
++ boolean matches(Map<String,String>)
+}
+
+
+class com.coffee.order.DataLoader {
+- Path animalsPath
+- Path rulesPath
+- Path propertiesPath
+- ObjectMapper objectMapper
++ Map<String,List<String>> loadProperties()
++ List<Map<String,String>> loadAnimals()
++ List<Rule> loadRules()
+- void validate(Map<String,String>,Map<String,List<String>>)
+}
+
+
+class com.coffee.order.rule.RuleResult {
+- String ruleName
+- int count
+}
+
+class com.coffee.order.conditions.ConditionFactory {
++ {static} Condition build(JsonNode)
+- {static} EqCondition buildEq(JsonNode)
+- {static} AndCondition buildAnd(JsonNode)
+- {static} OrCondition buildOr(JsonNode)
+- {static} NotCondition buildNot(JsonNode)
+- {static} List<Condition> buildChildren(JsonNode)
+}
+
+class com.coffee.order.Main {
+- {static} Path DATA_DIR
++ {static} void main(String[])
+}
+
+
+class com.coffee.order.conditions.EqCondition {
+- String property
+- String value
++ boolean matches(Map<String,String>)
+}
+
+
+interface com.coffee.order.conditions.Condition {
+~ boolean matches(Map<String,String>)
+}
+
+class com.coffee.order.Reporter {
++ void report(List<RuleResult>)
+}
+
+class com.coffee.order.rule.RuleEngine {
++ List<RuleResult> evaluate(List<Map<String,String>>,List<Rule>)
+}
+
+
+
+com.coffee.order.conditions.Condition <|.. com.coffee.order.conditions.OrCondition
+com.coffee.order.conditions.Condition <|.. com.coffee.order.conditions.AndCondition
+com.coffee.order.conditions.Condition <|.. com.coffee.order.conditions.NotCondition
+com.coffee.order.conditions.Condition <|.. com.coffee.order.conditions.EqCondition
+@enduml
